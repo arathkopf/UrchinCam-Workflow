@@ -1,0 +1,24 @@
+[0:39:45.254401537] [2304]  INFO Camera camera_manager.cpp:325 libcamera v0.3.2+27-7330f29b
+[0:39:45.445687839] [2307]  WARN RPiSdn sdn.cpp:40 Using legacy SDN tuning - please consider moving SDN inside rpi.denoise
+[0:39:45.451041902] [2307]  INFO RPI vc4.cpp:447 Registered camera /base/soc/i2c0mux/i2c@1/imx477@1a to Unicam device /dev/media1 and ISP device /dev/media0
+[0:39:45.451174037] [2307]  INFO RPI pipeline_base.cpp:1126 Using configuration file '/usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml'
+Mode selection for 640:480:12:P
+    SRGGB10_CSI2P,1332x990/0 - Score: 1305.05
+    SRGGB12_CSI2P,2028x1080/0 - Score: 701.167
+    SRGGB12_CSI2P,2028x1520/0 - Score: 607.329
+    SRGGB12_CSI2P,4056x3040/0 - Score: 1494.33
+[0:39:45.454216641] [2304]  INFO Camera camera.cpp:1197 configuring streams: (0) 640x480-YUV420 (1) 2028x1520-SBGGR12_CSI2P
+[0:39:45.454886277] [2307]  INFO RPI vc4.cpp:622 Sensor: /base/soc/i2c0mux/i2c@1/imx477@1a - Selected sensor format: 2028x1520-SBGGR12_1X12 - Selected unicam format: 2028x1520-pBCC
+[0:39:45.899408412] [2307] ERROR V4L2 v4l2_videodevice.cpp:1994 /dev/video1[14:cap]: Failed to start streaming: Input/output error
+ERROR: *** failed to start camera ***
+Traceback (most recent call last):
+  File "/home/rathkopf/UrchinCam/urchincam_segment_video.py", line 56, in <module>
+    continuous_half_hour_segments()
+  File "/home/rathkopf/UrchinCam/urchincam_segment_video.py", line 44, in continuous_half_hour_segments
+    start_camera_recording(duration)
+  File "/home/rathkopf/UrchinCam/urchincam_segment_video.py", line 19, in start_camera_recording
+    subprocess.run(command, check=True)
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['rpicam-vid', '-t', '1162000', '-o', 'video_2025-04-09_13-10-37.h264', '--inline', '--nopreview']' returned non-zero exit status 255.
+>>> 
